@@ -1,0 +1,11 @@
+export { HeroSection } from './HeroSection';
+export { ServiceCategories } from './ServiceCategories';
+export { BentoGrid } from './BentoGrid';
+export { AIRecommender } from './AIRecommender';
+export { StatsStrip } from './StatsStrip';
+export { Testimonials } from './Testimonials';
+export { OffersSection } from './OffersSection';
+export { LocationFinder } from './LocationFinder';
+export { BlogPreview } from './BlogPreview';
+export { InstagramFeed } from './InstagramFeed';
+export { CTABand } from './CTABand';
