@@ -82,7 +82,7 @@ export default function OffersPage() {
               Exclusive Offers
             </h1>
             <p className="font-body text-sm md:text-base text-pearl/70 max-w-lg mx-auto leading-relaxed">
-              Unlock exceptional value with our meticulously curated packages. These seasonal deals won't last forever.
+              Unlock exceptional value with our meticulously curated packages. These seasonal deals won&apos;t last forever.
             </p>
           </motion.div>
         </div>
