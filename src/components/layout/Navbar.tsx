@@ -97,28 +97,16 @@ export function Navbar() {
   return (
     <>
       <motion.nav
-        className={cn(
-          'fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-luxury',
-          scrolled
-            ? 'bg-pearl/[0.96] backdrop-blur-md shadow-sm'
-            : isHome
-            ? 'bg-transparent'
-            : 'bg-pearl border-b border-charcoal/5 shadow-sm'
-        )}
+        className="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0a] border-b border-white/5"
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       >
         <div className="section-container">
-          <div
-            className={cn(
-              'flex items-center justify-between transition-all duration-500 ease-luxury',
-              scrolled ? 'h-16' : 'h-20'
-            )}
-          >
+          <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <Link href="/" aria-label="Maxx Salon Home">
-              <Logo variant="dark" />
+              <Logo variant="light" />
             </Link>
 
             {/* Desktop Nav */}
@@ -132,7 +120,7 @@ export function Navbar() {
                 >
                   <Link
                     href={link.href}
-                    className="gold-underline font-body font-medium text-[13px] tracking-[0.04em] transition-colors duration-200 text-charcoal hover:text-gold"
+                    className="gold-underline font-body font-medium text-[13px] tracking-[0.04em] transition-colors duration-200 text-pearl/80 hover:text-gold"
                   >
                     {link.label}
                   </Link>
@@ -198,7 +186,7 @@ export function Navbar() {
 
             {/* Right Side */}
             <div className="hidden lg:flex items-center gap-5">
-              <span className="text-[11px] font-body tracking-widest text-charcoal/70 uppercase">
+              <span className="text-[11px] font-body tracking-widest text-pearl/40 uppercase">
                 Delhi NCR
               </span>
               <Link href="/book">
@@ -216,24 +204,18 @@ export function Navbar() {
               aria-expanded={mobileOpen}
             >
               <motion.span
-                className="block w-6 h-[1.5px] transition-colors bg-charcoal"
+                className="block w-6 h-[1.5px] bg-pearl"
                 animate={{
                   rotate: mobileOpen ? 45 : 0,
                   y: mobileOpen ? 5 : 0,
                 }}
               />
               <motion.span
-                className={cn(
-                  'block w-6 h-[1.5px] transition-colors',
-                  scrolled ? 'bg-charcoal' : 'bg-pearl'
-                )}
+                className="block w-6 h-[1.5px] bg-pearl"
                 animate={{ opacity: mobileOpen ? 0 : 1 }}
               />
               <motion.span
-                className={cn(
-                  'block w-6 h-[1.5px] transition-colors',
-                  scrolled ? 'bg-charcoal' : 'bg-pearl'
-                )}
+                className="block w-6 h-[1.5px] bg-pearl"
                 animate={{
                   rotate: mobileOpen ? -45 : 0,
                   y: mobileOpen ? -5 : 0,
