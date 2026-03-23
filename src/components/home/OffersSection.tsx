@@ -1,21 +1,22 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
-import { Badge, Button } from '@/components/design-system';
 import { staggerContainer, fadeUpItem, luxuryEase } from '@/lib/animations';
 
 const offers = [
   {
     id: 'glow-combo',
     name: 'Maxx Glow Combo',
-    description: 'Facial + Hair Spa + Manicure — the ultimate pampering trio for a radiant you.',
+    description: 'Facial + Hair Spa + Manicure — the ultimate pampering trio.',
     originalPrice: 2500,
     salePrice: 1499,
     savingsPercent: 40,
     slotsLeft: 4,
     expiresIn: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000 + 14 * 60 * 60 * 1000),
+    image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&q=80',
   },
   {
     id: 'bridal-preview',
@@ -26,6 +27,7 @@ const offers = [
     savingsPercent: 40,
     slotsLeft: 2,
     expiresIn: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000 + 8 * 60 * 60 * 1000),
+    image: 'https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=800&q=80',
   },
   {
     id: 'weekend-refresh',
@@ -36,118 +38,93 @@ const offers = [
     savingsPercent: 44,
     slotsLeft: 7,
     expiresIn: new Date(Date.now() + 1 * 24 * 60 * 60 * 1000 + 20 * 60 * 60 * 1000),
+    image: 'https://images.unsplash.com/photo-1562322140-8baeececf3df?w=800&q=80',
   },
 ];
-
-function CountdownTimer({ target }: { target: Date }) {
-  const [timeLeft, setTimeLeft] = useState('');
-
-  useEffect(() => {
-    const update = () => {
-      const diff = target.getTime() - Date.now();
-      if (diff <= 0) {
-        setTimeLeft('Expired');
-        return;
-      }
-      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      setTimeLeft(`Expires in ${d}d ${h}h ${m}m`);
-    };
-    update();
-    const interval = setInterval(update, 60000);
-    return () => clearInterval(interval);
-  }, [target]);
-
-  return (
-    <span className="font-body font-semibold text-[13px] text-error">
-      {timeLeft}
-    </span>
-  );
-}
 
 export function OffersSection() {
   const ref = React.useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.15 });
 
   return (
-    <section className="py-20 lg:py-28 bg-pearl" id="offers">
+    <section className="py-10 lg:py-16 bg-pearl" id="offers">
       <div className="section-container">
-        {/* Heading */}
+        {/* Heading Lakme Style */}
         <motion.div
-          className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12"
-          initial={{ opacity: 0, y: 30 }}
+          className="mb-8 lg:mb-12"
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: luxuryEase }}
         >
-          <div>
-            <Badge variant="limited" className="mb-3">
-              LIMITED TIME
-            </Badge>
-            <h2 className="font-display font-bold text-3xl md:text-[40px] text-charcoal">
+          <span className="inline-block bg-gold/20 text-charcoal font-display font-semibold text-[10px] tracking-widest px-3 py-1 mb-3">
+            LIMITED TIME
+          </span>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <h2 className="font-display font-light text-3xl md:text-4xl text-charcoal tracking-wide uppercase">
               Maxx Exclusive Offers
             </h2>
+            <Link href="/offers">
+              <span className="font-body text-xs font-semibold text-charcoal tracking-widest uppercase border-b border-charcoal pb-1 hover:text-gold hover:border-gold transition-colors">
+                VIEW ALL OFFERS
+              </span>
+            </Link>
           </div>
-          <Link href="/offers">
-            <span className="font-body text-sm text-gold hover:text-gold-muted transition-colors">
-              View all offers →
-            </span>
-          </Link>
         </motion.div>
 
-        {/* Offer Cards Grid */}
+        {/* Offer Cards Grid - Strict Lakme Premium Theme */}
         <motion.div
           ref={ref}
-          className="grid grid-cols-1 md:grid-cols-3 gap-5"
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-14"
           variants={staggerContainer}
           initial="hidden"
           animate={isInView ? 'visible' : 'hidden'}
         >
           {offers.map((offer) => (
-            <motion.div key={offer.id} variants={fadeUpItem}>
-              <div className="bg-ivory border border-smoke rounded-[20px] p-6 md:p-7 relative overflow-hidden group hover:shadow-lg transition-all duration-300">
-                {/* Top gold accent line */}
-                <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-gold via-gold-light to-gold-muted" />
+            <motion.div key={offer.id} variants={fadeUpItem} className="flex flex-col group cursor-pointer">
+              {/* Ultra-clean Square Image Frame */}
+              <div className="relative w-full aspect-square bg-[#f8f8f8] overflow-hidden mb-6">
+                <Image
+                  src={offer.image}
+                  alt=""
+                  fill
+                  className="object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+                
+                {/* Lakme style stark black/white badge */}
+                <div className="absolute top-3 left-3 bg-charcoal px-3 py-1 z-10">
+                  <span className="font-display font-medium text-[9px] text-white tracking-[0.15em] uppercase">
+                    SAVE {offer.savingsPercent}%
+                  </span>
+                </div>
+              </div>
 
-                {/* Offer Name */}
-                <h3 className="font-display font-bold text-xl text-charcoal mt-2">
+              {/* Minimalist Typography Layout */}
+              <div className="flex flex-col flex-1 px-1">
+                <h3 className="font-display text-[16px] lg:text-[18px] text-charcoal tracking-wide uppercase group-hover:text-ash transition-colors duration-300">
                   {offer.name}
                 </h3>
-
-                {/* Description */}
-                <p className="font-body text-sm text-ash mt-2 leading-relaxed">
+                
+                <p className="font-body text-[12px] text-ash/80 mt-2 mb-4 leading-relaxed line-clamp-2">
                   {offer.description}
                 </p>
 
-                {/* Price Row */}
-                <div className="flex items-center gap-3 mt-5">
-                  <span className="font-body text-base text-ash line-through">
-                    ₹{offer.originalPrice.toLocaleString('en-IN')}
-                  </span>
-                  <span className="font-body font-bold text-2xl text-charcoal">
+                {/* Price Matrix */}
+                <div className="flex items-end gap-3 mt-auto mb-4">
+                  <span className="font-display font-medium text-lg text-charcoal">
                     ₹{offer.salePrice.toLocaleString('en-IN')}
                   </span>
-                  <Badge variant="save">
-                    SAVE {offer.savingsPercent}%
-                  </Badge>
+                  <span className="font-body text-[13px] text-ash line-through mb-[2px]">
+                    ₹{offer.originalPrice.toLocaleString('en-IN')}
+                  </span>
                 </div>
-
-                {/* Countdown */}
-                <div className="mt-4">
-                  <CountdownTimer target={offer.expiresIn} />
-                </div>
-
-                {/* Slots FOMO */}
-                <p className="font-body text-xs text-ash mt-2">
-                  ⚡ Only {offer.slotsLeft} slots left today
-                </p>
-
-                {/* CTA */}
-                <Link href="/book" className="block mt-5">
-                  <Button variant="primary" fullWidth>
-                    Claim This Offer
-                  </Button>
+                  
+                {/* Premium Edge-to-Edge CTA */}
+                <Link href="/book" className="mt-5 w-full">
+                  <span className="flex items-center justify-center w-full bg-charcoal text-white py-3.5 text-[11px] font-body tracking-[0.2em] font-medium uppercase group-hover:bg-[#111] transition-colors duration-300">
+                    CLAIM OFFER
+                  </span>
                 </Link>
               </div>
             </motion.div>

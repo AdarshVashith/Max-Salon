@@ -50,11 +50,11 @@ export function ServiceCategories() {
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   return (
-    <section className="py-20 lg:py-28 bg-pearl" id="service-categories">
+    <section className="pt-4 md:pt-8 pb-10 lg:pb-16 bg-pearl" id="service-categories">
       <div className="section-container">
         {/* Heading */}
         <motion.div
-          className="text-center mb-14"
+          className="text-center mb-8 lg:mb-8 lg:mb-10"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

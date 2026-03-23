@@ -61,8 +61,8 @@ export function HeroSection() {
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      {/* Banner Container — full-width landscape */}
-        <div className="relative w-full aspect-[21/9] md:aspect-[2.4/1] overflow-hidden">
+      {/* Banner Container — mobile: tall, desktop: ultra-wide (Lakme style) */}
+        <div className="relative w-full aspect-[4/5] sm:aspect-[16/9] lg:aspect-[2.5/1] xl:aspect-[3/1] bg-charcoal overflow-hidden group">
           {/* Image with crossfade */}
           <AnimatePresence mode="wait">
             <motion.div
@@ -99,7 +99,7 @@ export function HeroSection() {
                   transition={{ duration: 0.6, ease: luxuryEase }}
                   className="max-w-lg"
                 >
-                  <h1 className="font-display font-black text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-pearl leading-[1.05] drop-shadow-lg">
+                  <h1 className="font-display font-black text-4xl sm:text-5xl lg:text-7xl text-pearl leading-[1.05] drop-shadow-lg tracking-tight">
                     {banner.headline}
                   </h1>
                   <p className="font-accent italic font-light text-sm md:text-lg text-pearl/80 mt-2 md:mt-3 drop-shadow-md">
@@ -117,43 +117,44 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Dots Navigation — bottom center */}
-          <div className="absolute bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2">
-            {banners.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setCurrent(i)}
-                className={`h-1.5 rounded-full transition-all duration-300 ${
-                  i === current
-                    ? 'bg-gold w-8'
-                    : 'bg-pearl/40 w-4 hover:bg-pearl/70'
-                }`}
-                aria-label={`Go to banner ${i + 1}`}
-              />
-            ))}
-          </div>
+          {/* Dots deliberately removed from inside the image overlay */}
 
-          {/* Arrow Navigation */}
+          {/* Arrow Navigation — hidden by default, visible on hover */}
           <button
             onClick={() =>
               setCurrent((prev) => (prev - 1 + banners.length) % banners.length)
             }
-            className="absolute left-3 md:left-5 top-1/2 -translate-y-1/2 z-20 w-9 h-9 md:w-10 md:h-10 rounded-full bg-pearl/10 backdrop-blur-sm border border-pearl/20 flex items-center justify-center text-pearl hover:bg-pearl/20 transition-all"
+            className="absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-20 w-10 h-10 lg:w-12 lg:h-12 rounded-full border border-pearl/20 flex items-center justify-center text-pearl hover:bg-white hover:text-charcoal transition-all opacity-0 group-hover:opacity-100 hidden sm:flex"
             aria-label="Previous banner"
           >
-            ‹
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
           </button>
           <button
             onClick={next}
-            className="absolute right-3 md:right-5 top-1/2 -translate-y-1/2 z-20 w-9 h-9 md:w-10 md:h-10 rounded-full bg-pearl/10 backdrop-blur-sm border border-pearl/20 flex items-center justify-center text-pearl hover:bg-pearl/20 transition-all"
+            className="absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-20 w-10 h-10 lg:w-12 lg:h-12 rounded-full border border-pearl/20 flex items-center justify-center text-pearl hover:bg-white hover:text-charcoal transition-all opacity-0 group-hover:opacity-100 hidden sm:flex"
             aria-label="Next banner"
           >
-            ›
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
           </button>
         </div>
 
-      {/* Bottom spacing */}
-      <div className="h-8 md:h-12" />
+      {/* Lakme-style Dots Navigation (Below the image) */}
+      <div className="w-full flex justify-center items-center py-6 md:py-10 bg-pearl">
+        <div className="flex gap-2">
+          {banners.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrent(i)}
+              className={`h-[3px] transition-colors duration-300 ${
+                i === current
+                  ? 'bg-charcoal w-12 sm:w-16'
+                  : 'bg-charcoal/20 w-12 sm:w-16 hover:bg-charcoal/40'
+              }`}
+              aria-label={`Go to banner ${i + 1}`}
+            />
+          ))}
+        </div>
+      </div>
     </section>
   );
 }

@@ -2,8 +2,8 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Button, Badge } from '@/components/design-system';
 import { staggerContainer, fadeUpItem, luxuryEase } from '@/lib/animations';
 
 const offers = [
@@ -14,9 +14,7 @@ const offers = [
     originalPrice: 2500,
     salePrice: 1499,
     savingsPercent: 40,
-    validity: 'Valid till 31st March 2026',
-    slotsLeft: 4,
-    category: 'Combo',
+    image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&q=80',
   },
   {
     id: 'bridal-preview',
@@ -25,9 +23,7 @@ const offers = [
     originalPrice: 5000,
     salePrice: 2999,
     savingsPercent: 40,
-    validity: 'Valid till 15th April 2026',
-    slotsLeft: 2,
-    category: 'Bridal',
+    image: 'https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=800&q=80',
   },
   {
     id: 'weekend-refresh',
@@ -36,9 +32,7 @@ const offers = [
     originalPrice: 1800,
     salePrice: 999,
     savingsPercent: 44,
-    validity: 'Valid every weekend',
-    slotsLeft: 7,
-    category: 'Weekend Special',
+    image: 'https://images.unsplash.com/photo-1562322140-8baeececf3df?w=800&q=80',
   },
   {
     id: 'first-visit',
@@ -47,9 +41,7 @@ const offers = [
     originalPrice: 1000,
     salePrice: 800,
     savingsPercent: 20,
-    validity: 'For new customers only',
-    slotsLeft: 15,
-    category: 'New Customers',
+    image: 'https://images.unsplash.com/photo-1493106819501-66d381c466f1?w=800&q=80',
   },
   {
     id: 'color-festival',
@@ -58,9 +50,7 @@ const offers = [
     originalPrice: 4500,
     salePrice: 2799,
     savingsPercent: 38,
-    validity: 'Valid till 30th April 2026',
-    slotsLeft: 5,
-    category: 'Hair Special',
+    image: 'https://images.unsplash.com/photo-1620331311520-246422fd82f9?w=800&q=80',
   },
   {
     id: 'couple-spa',
@@ -69,77 +59,88 @@ const offers = [
     originalPrice: 6000,
     salePrice: 3999,
     savingsPercent: 33,
-    validity: 'Valid on weekdays only',
-    slotsLeft: 3,
-    category: 'Couple',
+    image: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=800&q=80',
   },
 ];
 
 export default function OffersPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="bg-charcoal pt-28 pb-16">
+      {/* Editorial Hero */}
+      <section className="bg-charcoal pt-[160px] pb-[80px]">
         <div className="section-container text-center">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: luxuryEase }}
+            transition={{ duration: 0.8, ease: luxuryEase }}
+            className="max-w-3xl mx-auto"
           >
-            <Badge variant="limited" className="mb-4">LIMITED TIME</Badge>
-            <h1 className="font-display font-black text-4xl md:text-5xl lg:text-6xl text-pearl">
+            <span className="inline-block bg-gold/20 text-gold font-display font-medium text-[10px] tracking-[0.2em] px-3 py-1 mb-6">
+              LIMITED TIME
+            </span>
+            <h1 className="font-display font-light text-4xl md:text-5xl lg:text-6xl tracking-wide text-pearl uppercase mb-6">
               Exclusive Offers
             </h1>
-            <p className="font-body text-base text-pearl/60 mt-4 max-w-lg mx-auto">
-              Grab the best deals on premium salon services. Don&apos;t miss out — these offers won&apos;t last forever.
+            <p className="font-body text-sm md:text-base text-pearl/70 max-w-lg mx-auto leading-relaxed">
+              Unlock exceptional value with our meticulously curated packages. These seasonal deals won't last forever.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Offers Grid */}
-      <section className="py-12 lg:py-16 bg-pearl">
+      {/* Grid Architecture */}
+      <section className="py-16 lg:py-24 bg-pearl">
         <div className="section-container">
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-14"
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
           >
             {offers.map((offer) => (
-              <motion.div key={offer.id} variants={fadeUpItem}>
-                <div className="bg-ivory border border-smoke rounded-[20px] p-6 relative overflow-hidden group hover:shadow-lg transition-all duration-300">
-                  {/* Top gold accent */}
-                  <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-gold via-gold-light to-gold-muted" />
+              <motion.div key={offer.id} variants={fadeUpItem} className="flex flex-col group cursor-pointer">
+                {/* Clean Square Frame */}
+                <div className="relative w-full aspect-square bg-[#f8f8f8] overflow-hidden mb-6">
+                  <Image
+                    src={offer.image}
+                    alt=""
+                    fill
+                    className="object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                  
+                  {/* Stark Badge */}
+                  <div className="absolute top-3 left-3 bg-charcoal px-3 py-1 z-10">
+                    <span className="font-display font-medium text-[9px] text-white tracking-[0.15em] uppercase">
+                      SAVE {offer.savingsPercent}%
+                    </span>
+                  </div>
+                </div>
 
-                  <Badge variant="gold" className="mb-3">{offer.category}</Badge>
-
-                  <h3 className="font-display font-bold text-xl text-charcoal mt-2">
+                {/* Minimalist Details block */}
+                <div className="flex flex-col flex-1 px-1">
+                  <h3 className="font-display text-[16px] lg:text-[18px] text-charcoal tracking-wide uppercase group-hover:text-ash transition-colors duration-300">
                     {offer.name}
                   </h3>
-                  <p className="font-body text-sm text-ash mt-2 leading-relaxed">
+                  
+                  <p className="font-body text-[12px] text-ash/80 mt-2 mb-4 leading-relaxed line-clamp-2">
                     {offer.description}
                   </p>
 
-                  {/* Price */}
-                  <div className="flex items-center gap-3 mt-5">
-                    <span className="font-body text-base text-ash line-through">
-                      ₹{offer.originalPrice.toLocaleString('en-IN')}
-                    </span>
-                    <span className="font-body font-bold text-2xl text-charcoal">
+                  <div className="flex items-end gap-3 mt-auto mb-4">
+                    <span className="font-display font-medium text-lg text-charcoal">
                       ₹{offer.salePrice.toLocaleString('en-IN')}
                     </span>
-                    <Badge variant="save">SAVE {offer.savingsPercent}%</Badge>
+                    <span className="font-body text-[13px] text-ash line-through mb-[2px]">
+                      ₹{offer.originalPrice.toLocaleString('en-IN')}
+                    </span>
                   </div>
 
-                  <p className="text-xs text-ash mt-3">{offer.validity}</p>
-                  <p className="text-xs text-ash mt-1">⚡ Only {offer.slotsLeft} slots left today</p>
-
-                  <Link href="/book" className="block mt-5">
-                    <Button variant="primary" fullWidth>
-                      Claim This Offer
-                    </Button>
+                  <Link href="/book" className="mt-2 w-full">
+                    <span className="flex items-center justify-center w-full bg-charcoal text-white py-3.5 text-[11px] font-body tracking-[0.2em] font-medium uppercase group-hover:bg-[#111] transition-colors duration-300">
+                      CLAIM OFFER
+                    </span>
                   </Link>
                 </div>
               </motion.div>

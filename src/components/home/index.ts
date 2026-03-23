@@ -7,5 +7,6 @@ export { Testimonials } from './Testimonials';
 export { OffersSection } from './OffersSection';
 export { LocationFinder } from './LocationFinder';
 export { BlogPreview } from './BlogPreview';
+export { Gallery } from './Gallery';
 export { InstagramFeed } from './InstagramFeed';
 export { CTABand } from './CTABand';

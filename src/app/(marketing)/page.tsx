@@ -9,6 +9,7 @@ import {
   Testimonials,
   OffersSection,
   BlogPreview,
+  Gallery,
   InstagramFeed,
   CTABand,
 } from '@/components/home';
@@ -24,6 +25,7 @@ export default function HomePage() {
       <Testimonials />
       <OffersSection />
       <BlogPreview />
+      <Gallery />
       <InstagramFeed />
       <CTABand />
     </>

@@ -79,7 +79,7 @@ export function AIRecommender() {
   };
 
   return (
-    <section className="py-20 lg:py-28 bg-charcoal relative overflow-hidden" id="ai-recommender">
+    <section className="py-10 lg:py-16 bg-charcoal relative overflow-hidden" id="ai-recommender">
       {/* Background accents */}
       <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-gold/5 rounded-full blur-[120px]" />
       <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-gold/3 rounded-full blur-[100px]" />

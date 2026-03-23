@@ -18,12 +18,54 @@ const navLinks = [
 ];
 
 const serviceCategories = [
-  { name: 'Hair Care', icon: '✂️', count: 14, href: '/services/hair' },
-  { name: 'Skin & Facial', icon: '💎', count: 12, href: '/services/skin' },
-  { name: 'Bridal Maxx', icon: '👑', count: 8, href: '/services/bridal' },
-  { name: 'Nail Art', icon: '✨', count: 10, href: '/services/nails' },
-  { name: 'Body Treatments', icon: '🌸', count: 9, href: '/services/body' },
-  { name: 'Packages & Combos', icon: '🎀', count: 6, href: '/services/packages' },
+  {
+    name: 'Hair Care',
+    count: 14,
+    href: '/services/hair',
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>
+    )
+  },
+  {
+    name: 'Skin & Facial',
+    count: 12,
+    href: '/services/skin',
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 3h12l4 6-10 13L2 9Z"/><path d="M11 3 8 9l4 13 4-13-3-6"/><path d="M2 9h20"/></svg>
+    )
+  },
+  {
+    name: 'Bridal Maxx',
+    count: 8,
+    href: '/services/bridal',
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="m2 4 3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14"/></svg>
+    )
+  },
+  {
+    name: 'Nail Art',
+    count: 10,
+    href: '/services/nails',
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></svg>
+    )
+  },
+  {
+    name: 'Body Treatments',
+    count: 9,
+    href: '/services/body',
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 7.5a4.5 4.5 0 1 1 3.182-7.682A4.5 4.5 0 1 1 12 7.5Z"/><path d="M12 7.5a4.5 4.5 0 1 0-3.182-7.682A4.5 4.5 0 1 0 12 7.5Z"/><path d="M12 7.5a4.5 4.5 0 1 1 7.682 3.182A4.5 4.5 0 1 1 12 7.5Z"/><path d="M12 7.5a4.5 4.5 0 1 0-7.682 3.182A4.5 4.5 0 1 0 12 7.5Z"/><path d="M12 7.5a4.5 4.5 0 1 1 3.182 7.682A4.5 4.5 0 1 1 12 7.5Z"/><path d="M12 7.5a4.5 4.5 0 1 0-3.182 7.682A4.5 4.5 0 1 0 12 7.5Z"/><circle cx="12" cy="12" r="3"/></svg>
+    )
+  },
+  {
+    name: 'Packages & Combos',
+    count: 6,
+    href: '/services/packages',
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5"/></svg>
+    )
+  },
 ];
 
 export function Navbar() {

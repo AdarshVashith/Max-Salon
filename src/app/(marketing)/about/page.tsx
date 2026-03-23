@@ -76,7 +76,7 @@ export default function AboutPage() {
       </section>
 
       {/* Mission */}
-      <section className="py-16 lg:py-24 bg-pearl">
+      <section className="py-10 lg:py-14 bg-pearl">
         <div className="section-container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -130,10 +130,10 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="py-16 lg:py-24 bg-pearl-warm">
+      <section className="py-10 lg:py-14 bg-pearl-warm">
         <div className="section-container">
           <motion.h2
-            className="font-display font-bold text-3xl md:text-4xl text-charcoal text-center mb-12"
+            className="font-display font-bold text-3xl md:text-4xl text-charcoal text-center mb-8 lg:mb-10"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -167,10 +167,10 @@ export default function AboutPage() {
       </section>
 
       {/* Team */}
-      <section className="py-16 lg:py-24 bg-pearl">
+      <section className="py-10 lg:py-14 bg-pearl">
         <div className="section-container">
           <motion.div
-            className="text-center mb-12"
+            className="text-center mb-8 lg:mb-10"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -212,10 +212,10 @@ export default function AboutPage() {
       </section>
 
       {/* Timeline */}
-      <section className="py-16 lg:py-24 bg-charcoal">
+      <section className="py-10 lg:py-14 bg-charcoal">
         <div className="section-container">
           <motion.h2
-            className="font-display font-bold text-3xl md:text-4xl text-pearl text-center mb-12"
+            className="font-display font-bold text-3xl md:text-4xl text-pearl text-center mb-8 lg:mb-10"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

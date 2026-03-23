@@ -133,13 +133,17 @@ export function Footer() {
             <h4 className="font-display text-lg font-bold mb-5">Contact</h4>
             <div className="space-y-3 text-sm text-pearl/60">
               <p className="flex items-center gap-2">
-                <span>📞</span>
+                <span className="text-gold">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </span>
                 <a href="tel:+919999999999" className="hover:text-gold transition-colors">
                   +91 99999 99999
                 </a>
               </p>
               <p className="flex items-center gap-2">
-                <span>✉️</span>
+                <span className="text-gold">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                </span>
                 <a href="mailto:hello@maxxsalon.in" className="hover:text-gold transition-colors">
                   hello@maxxsalon.in
                 </a>
@@ -150,7 +154,8 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/10 transition-all text-xs font-medium mt-2"
               >
-                💬 Chat on WhatsApp
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+                Chat on WhatsApp
               </a>
               <div className="pt-2">
                 <p className="text-xs text-pearl/40">Hours</p>
@@ -173,7 +178,7 @@ export function Footer() {
               </p>
             </div>
             <form
-              className="flex gap-3 w-full md:w-auto"
+              className="flex flex-col md:flex-row gap-3 w-full md:w-auto"
               onSubmit={(e) => {
                 e.preventDefault();
                 setEmail('');
@@ -187,7 +192,7 @@ export function Footer() {
                 className="bg-pearl/5 border border-pearl/15 rounded-full px-5 py-3 text-sm text-pearl placeholder:text-pearl/30 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold/30 w-full md:w-72"
                 aria-label="Email address for newsletter"
               />
-              <Button variant="primary" size="md" type="submit">
+              <Button variant="primary" size="md" type="submit" fullWidth className="md:w-auto">
                 Join the Maxx Club
               </Button>
             </form>

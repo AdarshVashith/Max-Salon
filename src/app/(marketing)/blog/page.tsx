@@ -100,7 +100,7 @@ export default function BlogPage() {
           {/* Featured Post */}
           {featured && (
             <motion.div
-              className="mb-12"
+              className="mb-8 lg:mb-10"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

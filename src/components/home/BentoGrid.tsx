@@ -54,11 +54,11 @@ export function BentoGrid() {
   const isInView = useInView(ref, { once: true, amount: 0.15 });
 
   return (
-    <section className="py-20 lg:py-28 bg-pearl" id="signature-services">
+    <section className="py-10 lg:py-16 bg-pearl" id="signature-services">
       <div className="section-container">
         {/* Heading */}
         <motion.div
-          className="mb-12"
+          className="mb-8 lg:mb-10"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

@@ -61,7 +61,7 @@ export function LocationFinder() {
   const [selectedCity, setSelectedCity] = useState('Delhi');
 
   return (
-    <section className="py-20 lg:py-28 bg-pearl" id="location-finder">
+    <section className="py-10 lg:py-16 bg-pearl" id="location-finder">
       <div className="section-container">
         {/* Heading */}
         <motion.div
