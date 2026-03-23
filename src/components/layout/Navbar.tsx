@@ -197,14 +197,12 @@ export function Navbar() {
             </div>
 
             {/* Right Side */}
-            <div className="hidden lg:flex items-center gap-4">
-              <span
-                className="text-xs font-medium flex items-center gap-1.5 px-3 py-1.5 rounded-full text-charcoal bg-pearl-warm"
-              >
-                📍 Delhi NCR
+            <div className="hidden lg:flex items-center gap-5">
+              <span className="text-[11px] font-body tracking-widest text-charcoal/70 uppercase">
+                Delhi NCR
               </span>
               <Link href="/book">
-                <Button variant="primary" size="sm">
+                <Button variant="golden" size="sm">
                   Book Now
                 </Button>
               </Link>
@@ -306,7 +304,7 @@ export function Navbar() {
                 className="mt-6"
               >
                 <Link href="/book" onClick={() => setMobileOpen(false)}>
-                  <Button variant="primary" size="lg">
+                  <Button variant="golden" size="lg">
                     Book Appointment
                   </Button>
                 </Link>
